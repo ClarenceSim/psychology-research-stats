@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychology Research Stats</title>
+</head>
+<body>
+    <header>
+        <h1>Psychology Research Trends</h1>
+    </header>
+
+    <main>
+        <section id="research-data">
+            <!-- Research data will go here -->
+        </section>
+
+        <canvas id="myChart" width="400" height="200"></canvas>
+    </main>
+
+    <footer>
+        <p>Powered by GitHub Pages and Data Visualization</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Placeholder for article data
+        const researchData = [
+            { title: "Cognitive Neuroscience in Psychology", year: 2020 },
+            { title: "Psychological Theories of Learning", year: 2019 },
+            { title: "Mental Health Interventions in Clinical Psychology", year: 2021 }
+        ];
+
+        const container = document.getElementById("research-data");
+        researchData.forEach(item => {
+            const p = document.createElement("p");
+            p.textContent = `${item.title} - ${item.year}`;
+            container.appendChild(p);
+        });
+
+        // Example of data visualization with Chart.js
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Cognitive Neuroscience', 'Psychological Theories', 'Mental Health'],
+                datasets: [{
+                    label: '# of Articles',
+                    data: [12, 19, 5],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
